@@ -1,0 +1,116 @@
+ <!-- bradcam_area_start  -->
+ <div class="bradcam_area breadcam_bg_2 bradcam_overlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>contact</h3>
+                    <!-- <p><a href="index.html">Home /</a> contact</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- bradcam_area_end  -->
+
+<!-- ================ contact section start ================= -->
+<section class="contact-section">
+        <div class="container">
+             <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">Get in Touch</h2>
+                </div>
+                <div class="col-lg-8">
+                    <form class="form-contact contact_form" novalidate="novalidate">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="form-group">
+                            <textarea
+                              class="form-control w-100"
+                              name="message"
+                              id="message"
+                              cols="30"
+                              rows="9"
+                              [(ngModel)]="message"
+                              placeholder="Enter Message"
+                              required
+                            ></textarea>
+                          </div>
+                        </div>
+                  
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input
+                              class="form-control valid"
+                              name="name"
+                              id="name"
+                              type="text"
+                              [(ngModel)]="name"
+                              placeholder="Enter your name"
+                              required
+                            />
+                          </div>
+                        </div>
+                  
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input
+                              class="form-control valid"
+                              name="email"
+                              id="email"
+                              type="email"
+                              [(ngModel)]="email"
+                              placeholder="Email"
+                              required
+                            />
+                          </div>
+                        </div>
+                  
+                        <div class="col-12">
+                          <div class="form-group">
+                            <input
+                              class="form-control"
+                              name="subject"
+                              id="subject"
+                              type="text"
+                              [(ngModel)]="subject"
+                              placeholder="Enter Subject"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <div class="form-group mt-3">
+                        <!-- Change ngSubmit to click event -->
+                        <button type="button" class="button button-contactForm" (click)="submitForm()">Send</button>
+                      </div>
+                    </form>
+                  </div>                  
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                            <h3>Ariena, Tunisia.</h3>
+                            <p>Ariena Soghra</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                            <h3>+216 88888888 </h3>
+                            <p>Mon to Fri 8am to 18pm</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                            <h3>Docmed.com</h3>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ================ contact section end ================= -->

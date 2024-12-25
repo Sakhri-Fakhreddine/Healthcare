@@ -1,0 +1,166 @@
+.container {
+  max-width: 97%;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-group {
+  font-weight: bold;
+}
+.description {
+  margin-left: 40px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.display-box {
+  font-size: 18px;
+  padding: 5px;
+  margin: 5px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+  display: inline-block;
+}
+
+.symptoms-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center; /* Centers the cards horizontally */
+  align-items: flex-start; /* Aligns the cards to the top */
+}
+
+.category-card {
+  flex: 1 1 22%; /* Each card takes 22% of the container width */
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 605px; /* Fixed height for each card */
+  box-sizing: border-box; /* Ensures padding doesn't affect total height */
+  flex-grow: 0; /* Prevent stretching */
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #e2f0fe;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make the card fill its container */
+}
+
+.card-header {
+  padding: 15px;
+  background-color: #17a2b8;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  flex-shrink: 0; /* Prevents the header from shrinking */
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #e2f0fe;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between the symptoms */
+  overflow-y: auto; /* Makes content scrollable if it overflows */
+  flex-grow: 1; /* Allows the body to grow and fill remaining space */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.symptom-item {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Makes each symptom take equal space */
+}
+
+.symptom-item input {
+  margin-right: 8px;
+}
+
+.diagnosis-result {
+  max-width: 40%;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #e2f0fe;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+/* Ensure 4 cards per row */
+.symptoms-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center; /* Center cards horizontally */
+}
+
+.category-card {
+  flex: 1 1 22%; /* Each card takes 22% of the container width */
+  margin-bottom: 15px;
+  flex-grow: 0; /* Prevent stretching */
+}
+
+/* Center the last card if there's only 1 card in the row */
+.symptoms-categories > .category-card:nth-last-child(1):not(:nth-child(4n)) {
+  margin-left: auto;
+  margin-right: auto;
+  flex: 1 1 22%; /* Ensure it has the same width as others */
+  flex-grow: 0; /* Prevent the card from stretching */
+}
+
+/* Adjust layout on smaller screens (2 cards per row) */
+@media screen and (max-width: 768px) {
+  .category-card {
+    flex: 1 1 48%; /* 2 cards per row */
+  }
+  
+  /* If only one card remains in the last row, center it */
+  .symptoms-categories > .category-card:nth-last-child(1):not(:nth-child(2n)) {
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1 1 48%; /* Ensures the last card is centered and takes the same width */
+  }
+}
+
+@media (max-width: 480px) {
+  .category-card {
+    flex: 1 1 100%; /* 1 card per row on small screens */
+  }
+}

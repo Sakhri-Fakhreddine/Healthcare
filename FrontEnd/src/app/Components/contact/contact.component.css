@@ -1,0 +1,90 @@
+/* General Form Styling */
+.form-contact {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-contact .form-group {
+    margin-bottom: 20px;
+}
+
+.form-contact textarea,
+.form-contact input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-contact textarea:focus,
+.form-contact input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.form-contact textarea {
+    resize: none;
+    min-height: 150px;
+}
+
+.form-contact input::placeholder,
+.form-contact textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Form Button Styling */
+.form-contact .form-group.mt-3 {
+    text-align: center; /* Centers the button */
+}
+
+.button-contactForm {
+    display: inline-block;
+    padding: 15px 40px; /* Increase padding for better visibility */
+    font-size: 18px;
+    background-color: #17a2b8; /* Green background for better visibility */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+}
+
+.button-contactForm:hover {
+    background-color: #04869a; /* Darker green on hover */
+    transform: translateY(-2px); /* Slightly raise the button */
+}
+
+.button-contactForm:focus {
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-contact {
+        padding: 20px;
+    }
+
+    .form-contact .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-contact input,
+    .form-contact textarea {
+        font-size: 14px;
+    }
+
+    .button-contactForm {
+        width: 100%;
+        font-size: 16px;
+    }
+}

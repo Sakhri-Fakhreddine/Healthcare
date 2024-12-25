@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Patients List</h2>
+  
+    <div *ngIf="patients.length > 0" class="medical-history-cards">
+      <div class="row">
+        <div *ngFor="let patient of patients; let i = index" class="col-12 col-md-4 mb-4">
+          <!-- Patient Card -->
+          <div class="history-card">
+            <h3 align="center">Patient ID : {{patient.id}}</h3>
+  
+            <div class="single_expert mb-40">
+              <div class="expert_thumb">
+                <img class="patient-image" [src]="patient.imageUrl" alt="Patient Image">
+            </div>
+              <div class="experts_name text-center">
+                <h3>{{ patient.name }}</h3>
+                <!-- <span>{{ patient.role | titlecase }}</span> -->
+              </div>
+  
+              <!-- Patient Details -->
+              <div class="patient-details">
+                <p><strong>Age:</strong> {{ patient.age }}</p>
+                <p><strong>Email:</strong> {{ patient.email }}</p>
+                <p><strong>Phone Number:</strong> {{ patient.phone_number }}</p>
+                <p><strong>Gender:</strong> {{ patient.gender | titlecase }}</p>
+              </div>
+              <br>
+              <br>
+              <div align="center">
+                <button class="btn btn-info" (click)="viewMedicalHistory(patient.id,patient.name)">
+                    View Medical History
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noHistory>
+      <p align="center"><strong>No patients found . <br></strong></p>
+    </ng-template>
+  </div>
+  

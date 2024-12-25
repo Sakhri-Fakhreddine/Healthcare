@@ -1,0 +1,50 @@
+# Backend Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: nabilhjeiji/backend  # Replace with your image
+          env:
+            - name: DEBUG
+              value: "True"
+            - name: MYSQL_DATABASE
+              value: "Healthcare"  # Same as in MySQL deployment
+            - name: MYSQL_USER
+              value: "fakhreddine"
+            - name: MYSQL_PASSWORD
+              value: "sakhri"
+            - name: DB_HOST
+              value: "db"  # The name of the MySQL service
+            - name: DB_PORT
+              value: "3306"  # Default MySQL port
+          ports:
+            - containerPort: 8000
+
+---
+# Backend Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+      
+
+  type: ClusterIP

@@ -1,0 +1,68 @@
+<div class="registration-form">
+    <form [formGroup]="signUpForm" (ngSubmit)="updateProfile()">
+      <div class="form-icon">
+        <span><i class="icon icon-user"></i></span>
+      </div>
+  
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  
+      <!-- Name Input -->
+      <div class="form-group">
+        <input formControlName="name" type="text" class="form-control item" placeholder="Name" />
+        <small *ngIf="signUpForm.get('name')?.hasError('required') && signUpForm.get('name')?.touched" class="error-message">
+          Name is required.
+        </small>
+      </div>
+  
+      <!-- Email Input -->
+      <div class="form-group">
+        <input formControlName="email" type="email" class="form-control item" placeholder="Email" />
+        <small *ngIf="signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched" class="error-message">
+          Email is required.
+        </small>
+        <small *ngIf="signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched" class="error-message">
+          Invalid email format.
+        </small>
+      </div>
+  
+      <!-- Phone Number Input -->
+      <div class="form-group">
+        <input formControlName="phone_number" type="text" class="form-control item" placeholder="Phone Number" />
+        <small *ngIf="signUpForm.get('phone_number')?.hasError('required') && signUpForm.get('phone_number')?.touched" class="error-message">
+          Phone number is required.
+        </small>
+        <small *ngIf="signUpForm.get('phone_number')?.hasError('pattern') && signUpForm.get('phone_number')?.touched" class="error-message">
+          Invalid phone number. Must be 8 digits.
+        </small>
+      </div>
+  
+      <!-- Gender Input -->
+      <div class="form-group">
+        <select formControlName="gender" class="form-control item">
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <small *ngIf="signUpForm.get('gender')?.hasError('required') && signUpForm.get('gender')?.touched" class="error-message">
+          Gender is required.
+        </small>
+      </div>
+  
+      <!-- Age Input -->
+      <div class="form-group">
+        <input formControlName="age" type="number" class="form-control item" placeholder="Age" />
+        <small *ngIf="signUpForm.get('age')?.hasError('required') && signUpForm.get('age')?.touched" class="error-message">
+          Age is required.
+        </small>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account" [disabled]="signUpForm.invalid">
+          Update Profile
+        </button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,21 @@
+#map {
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    width: 100%;   /* Prend toute la largeur */
+    position: relative; /* Position relative pour le conteneur */
+    z-index: 1; /* Assure que la carte soit au-dessus d'autres éléments */
+}
+
+/* Styles pour les popups */
+.leaflet-popup {
+    font-size: 14px; /* Taille de police */
+    text-align: center; /* Alignement du texte */
+}
+
+/* Styles pour les marqueurs */
+.leaflet-marker-icon {
+    background-color: #ff7800; /* Couleur du marqueur */
+    border-radius: 50%; /* Marqueur arrondi */
+    height: 25px; /* Hauteur du marqueur */
+    width: 25px; /* Largeur du marqueur */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); /* Ombre pour le marqueur */
+}

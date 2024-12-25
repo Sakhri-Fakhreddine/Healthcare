@@ -1,0 +1,71 @@
+/* Container for the entire medical history */
+.container {
+  padding: 20px;
+  max-width: 97%; /* Allow container to take up more width, 90% of the screen */
+  margin: 20px auto; /* Keeps the 20px margin at the top and bottom, auto on the left/right for centering */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally centers the child elements (e.g., medical history cards) */
+}
+
+/* Heading for medical history */
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Card style for each diagnosis */
+.medical-history-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+  justify-items: center; /* Ensures each card is centered inside its cell */
+}
+
+/* History card style */
+.history-card {
+  background-color: #e2f0fe;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease-in-out;
+  width: 100%; /* Ensures the card takes up the full available width of its cell */
+  box-sizing: border-box;
+}
+
+/* Hover effect for cards */
+.history-card:hover {
+  transform: scale(1.05);
+}
+
+/* Diagnosis details */
+.history-card h3 {
+  color: #17a2b8;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.history-card p {
+  color: #555;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.history-card strong {
+  color: #333;
+}
+
+/* No history message */
+ng-template {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  padding-top: 20px;
+}

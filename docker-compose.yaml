@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./FrontEnd  # Répertoire contenant le Dockerfile pour Angular
+      dockerfile: Dockerfile  # Nom du Dockerfile
+    ports:
+      - "80:80"  # Redirige le port 80 de l'hôte vers le port 80 du conteneur
+    depends_on:
+      - backend  # S'assure que le backend est démarré avant le frontend
+
+  backend:
+    build:
+      context: ./BackEnd/HealthCare  # Répertoire contenant le Dockerfile pour Django
+      dockerfile: Dockerfile  # Nom du Dockerfile pour Django
+    image: healthcare-backend  # Utilisez des minuscules
+    ports:
+      - "8000:8000"  # Redirige le port 8000 de l'hôte vers le port 8000 du conteneur
+    environment:
+      - DEBUG=True  # Exemple d'environnement; ajustez selon vos besoins
+      - DATABASE_URL=mysql://fakhreddine:sakhri@db:3306/Healthcare  # URL de la base de données MySQL
+    depends_on:
+      db:
+        condition: service_healthy  # Attendre que le service de base de données soit sain
+    deploy:
+      resources:
+        limits:
+          memory: 10g  # Limite à 10 GB de mémoire pour le backend
+        reservations:
+          memory: 8g  # Réserve 8 GB de mémoire pour le backend
+
+  db:
+    image: mysql:latest  # Image MySQL
+    environment:
+      MYSQL_DATABASE: Healthcare  # Nom de la base de données
+      MYSQL_USER: fakhreddine  # Nom de l'utilisateur
+      MYSQL_PASSWORD: sakhri  # Mot de passe de l'utilisateur
+      MYSQL_ROOT_PASSWORD: sakhri  # Mot de passe pour l'utilisateur root (laisser vide pour aucune restriction)
+    ports:
+      - "3306:3306"  # Redirige le port 3306 de l'hôte vers le port 3306 du conteneur
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persistance des données
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  mysql_data:  # Volume pour persister les données de la base de données

@@ -1,0 +1,57 @@
+<header>
+    <div class="header-area">
+        <div id="sticky-header" class="main-header-area">
+            <!-- Replaced container with container-fluid -->
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-4 col-lg-2">
+                        <div *ngIf="!isdoctor" class="logo">
+                            <a href="/">
+                                <img src="../assets/img/logo.png" alt="Logo">
+                            </a>
+                        </div>
+                        <div *ngIf="isdoctor" class="logo">
+                            <a href="/doctor">
+                                <img src="../assets/img/logo.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-10">
+                        <!-- Main menu spans the full width now -->
+                        <div class="main-menu d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+                                    <li *ngIf="!isdoctor"><a class="active" href="/">Home</a></li>
+                                    <li *ngIf="isdoctor"><a class="active" href="/doctor">Home</a></li>
+                                    <!-- <li><a href="/department">Department</a></li> -->
+                                    <li *ngIf="!isdoctor"><a href="/doctor">Doctors</a></li>
+                                    <li><a href="/contact">Contact</a></li>
+                                    <li *ngIf="authenticated && !isdoctor"><a href="medical-history">Diagnosis History</a></li>
+                                    <li *ngIf="authenticated && isdoctor"><a href="patients-list">Patients List</a></li>
+
+                                    <!-- Show login/register if not authenticated -->
+                                    <li *ngIf="!authenticated"><a href="/signin">Login</a></li>
+                                    <li *ngIf="!authenticated"><a href="/signup">Register</a></li>
+
+                                    <!-- Show user dropdown if authenticated -->
+                                    <li *ngIf="authenticated" class="dropdown ml-auto">
+                                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                            {{ userName }} <b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="profile">Profile</a></li>
+                                            <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,75 @@
+<div *ngIf="loading" class="text-center">Loading...</div>
+<div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+<!-- Diagnosis and Recommendations Card -->
+<div *ngIf="!loading && diagnosisData" class="card mx-auto my-4" style="max-width: 60%; padding: 20px;">
+    <!-- Diagnosis Information -->
+    <div class="card-header" style="background-color: #e6f7ff; color: black;">
+      <h2 align="center"><strong>Diagnosis Information</strong></h2>
+    </div>
+    <div class="card-body">
+        <h3 align="center">This diagnoses was made in : <strong>{{ diagnosisData.date | date }}</strong></h3>
+      <ul class="list-unstyled">
+        <li><strong>Diagnosis ID : </strong> {{ diagnosisData.id }}</li>
+        <li><strong>Manifested symptoms : </strong> 
+            <ul>
+            <li style="padding-left: 0px;"  *ngFor="let symptom of diagnosisData.symptoms">
+            <i class="fas fa-check-circle text-warning"></i>{{ symptom }}
+            </li></ul>
+        </li>
+        <li><strong>Predicted disease  : </strong> {{ diagnosisData.description }}</li>
+        <li><strong>Model's Confidence : </strong> {{ diagnosisData.confidence }}%</li>
+      </ul>
+    </div>
+  
+    <!-- Recommendations -->
+    <div *ngIf="recommendationsData.length > 0" class="card-footer ">
+      <h5> The given recommendations : </h5>
+      <ul class="list-unstyled">
+        <li *ngFor="let recommendation of recommendationsData">
+          <i class="fas fa-check-circle text-success"></i> {{ recommendation }}
+        </li>
+      </ul>
+    </div>
+    <!-- feedback div  -->
+    <div  class="card-footer text-center">
+      <h5>Feedback or comment given by doctors:</h5>
+      <textarea 
+        [readonly]="true" 
+        class="form-control" 
+        style="width: 80% ; display: inline-block" 
+        [placeholder]="'No comment'">
+        {{ comment || 'No Comment have been given yet !' }}
+      </textarea>
+    </div>
+
+    <div *ngIf="isdoctor" class="card-footer text-center">
+      <h5 align="center">Write a feedback or comment on the model's recommendations and predictions:</h5>
+      <textarea 
+        [(ngModel)]="doctorComment" 
+        class="form-control" 
+        rows="4" 
+        style="width: 80% ; display: inline-block" 
+        [placeholder]="'No comment'">
+      </textarea>
+      <br>
+      <button 
+        (click)="submitComment()" 
+        class="btn mt-3" 
+        style="background-color: #8fddf7; color: #fff; border: none; display: inline-block;">
+        Submit
+      </button>
+    </div>
+    
+     
+    
+    
+    
+    
+    <!-- Back Button -->
+    <div class="back-button">
+        <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    </div>
+  </div>
+
+

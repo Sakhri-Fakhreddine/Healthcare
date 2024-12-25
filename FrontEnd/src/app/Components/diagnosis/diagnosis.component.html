@@ -1,0 +1,61 @@
+<div class="container">
+  <h1 align="center"><strong>Get Diagnosed</strong></h1>
+  <form>
+    <!-- Client's Name and Date Fields -->
+    <div class="form-group" align="center">
+      <label><strong>Client Name:</strong></label>
+      <div class="display-box">{{ clientName }}</div>
+    </div>
+    <div class="form-group" align="center">
+      <label><strong>Date:</strong></label>
+      <div class="display-box">{{ date }}</div>
+    </div>
+
+    <!-- Symptoms Selection -->
+    <div class="form-group">
+      <label><p class="description">To get diagnosed please select the symptoms you manifest from the lists below:</p></label>
+      <div class="symptoms-categories">
+        <div *ngFor="let category of symptomCategories | keyvalue" class="category-card">
+          <!-- Card Title -->
+          <div class="card">
+            <div class="card-header">
+              {{ category.key }}
+            </div>
+            <!-- Card Body: Always Visible -->
+            <div class="card-body">
+              <div *ngFor="let symptom of category.value" class="symptom-item">
+                <input
+                  type="checkbox"
+                  [id]="'symptom-' + symptom"
+                  [checked]="selectedSymptoms.includes(symptom)"
+                  (change)="toggleSymptom(symptom, $event)"
+                />
+                <label [for]="'symptom-' + symptom">{{ symptom }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div align="center">
+      <button type="button" (click)="onSubmit()" class="btn btn-primary">Get Diagnosis</button>
+    </div>
+  </form>
+
+  <!-- Diagnosis Result -->
+  <div class="diagnosis-result mt-3" [style.display]="diagnosisResult ? 'block' : 'none'" id="diagnosisResult">
+    <h3 align="center">Diagnosis Result</h3>
+    <p><strong>Diagnosis Id:</strong> {{ diagnosisResult?.diagnosis_id || 'No diagnosis available' }}</p>
+    <p><strong>Predicted Disease:</strong> {{ diagnosisResult?.diagnosis || 'No diagnosis available' }}</p>
+    <p><strong>Confidence:</strong> {{ diagnosisResult?.confidence ?? 'Not available' }}%</p>
+    <p><strong>Date:</strong> {{ diagnosisResult?.date || 'Not available' }}</p>
+
+    <!-- Link to the recommendations page -->
+    <div align="center">
+      <a [routerLink]="['/precaution', diagnosisResult?.diagnosis_id]" class="btn btn-info">
+        View Recommendations
+      </a>
+    </div>
+  </div>
+</div>

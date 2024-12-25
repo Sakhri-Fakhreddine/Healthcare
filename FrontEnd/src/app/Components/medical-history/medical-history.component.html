@@ -1,0 +1,26 @@
+<div class="container" >
+    <h2>Medical History for : {{ clientName }}</h2>
+  
+    <div *ngIf="medicalHistory.length > 0; else noHistory" class="medical-history-cards">
+      <div *ngFor="let history of medicalHistory" class="history-card">
+        <h3 align="center">Diagnosis ID : {{ history.diagnosis_id }}</h3>
+        <p><strong>Diagnosis : </strong> {{ history.diagnosis_description }}</p>
+        <p><strong>Date : </strong> {{ history.diagnosis_date }}</p>
+        <p><strong>Confidence : </strong> {{ history.diagnosis_confidence }}%</p>
+        <!-- <p align="center"><a href="#"> For more detais click here </a></p> -->
+        <div align="center">
+          <a [routerLink]="['/precaution', history.diagnosis_id]" class="btn btn-info">
+            For more detais click here 
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  
+    <ng-template #noHistory>
+      <p align="center"><strong>No medical history found for this user. <br>
+    Please try getting diagnosed <br>
+   For any issues contact us </strong></p>
+    </ng-template>
+  </div>
+  

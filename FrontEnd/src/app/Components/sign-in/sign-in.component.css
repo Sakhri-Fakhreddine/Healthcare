@@ -1,0 +1,31 @@
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .google-signin-btn {
+    width: 100% !important; /* Ensures it takes the full width */
+    padding: 12px; /* Same padding as the submit button */
+    border-radius: 5px; /* Smooth rounded edges */
+    font-size: 16px; /* Match the font size */
+    border: none; /* Remove the default border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Adjust the button text and icon layout */
+.google-signin-btn span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Optional: Match the button color when hovered */
+/* .google-signin-btn:hover {
+    background-color: #357ae8; /* Slightly darker shade on hover 
+} */
+

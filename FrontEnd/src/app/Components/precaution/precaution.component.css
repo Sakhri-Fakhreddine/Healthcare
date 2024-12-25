@@ -1,0 +1,104 @@
+/* Container Styling */
+.container {
+    max-width: 97%;
+    margin: 20px auto;
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Card Styling */
+  .card {
+    max-width: 97%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Card Header */
+  .card-header {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  /* Card Body Styling */
+  .card-body {
+    padding: 20px;
+    background-color: #eefaff;
+  }
+  
+  .card-body ul {
+    padding-left: 20px;
+  }
+  
+  .card-body li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Card Footer Styling */
+  .card-footer {
+    padding: 15px 20px;
+    background-color: #eefaff;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .card-footer h5 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 40px;
+  }
+  
+  /* List Style for Recommendations */
+  .list-unstyled {
+    padding-left: 0;
+    margin-bottom: 0;
+    background-color: #eefaff;
+    padding-left: 20px;
+  }
+  
+  .list-unstyled li {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-left: 20px;
+  }
+  
+  .fas {
+    margin-right: 8px;
+  }
+  
+  /* Back Button Styling */
+  .back-button {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .back-button button {
+    background-color: #7e97ad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .back-button button:hover {
+    background-color: #9ed5ff;
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 100%;
+      padding: 0 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-body ul {
+      padding-left: 10px;
+    }
+  }
+  
